@@ -23,9 +23,11 @@ const getFetchData = (values) => {
     el.addEventListener("click", (e) => {
       shoppingList.push(e.target.value);
       console.log(shoppingList);
-      shoppingList.forEach((element)=>{
-        dom('div',element,'list')
-      })
+      localStorage.setItem("cart", JSON.stringify(shoppingList));
+      // shoppingList.forEach((element,id)=>{
+      //   console.log(element,id);
+      //   localStorage.setItem(element,id)
+      // })
     });
   });
 };
@@ -34,4 +36,3 @@ axios.get("/products.json").then((response) => getFetchData(response.data));
 // buttons.addEventListener('click',()=>{
 //   console.log('use clicked');
 // })
-console.log(shoppingList);
