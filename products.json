@@ -1,0 +1,20 @@
+[
+  {
+    "productId": 1,
+    "title": "beautiful shoe",
+    "availibilaty": true,
+    "Price": "30 Euro"
+  },
+  {
+    "productId": 2,
+    "title": "beautiful coat",
+    "availibilaty": false,
+    "Price": "55.60 Euro"
+  },
+  {
+    "productId": 3,
+    "title": "watch",
+    "availibilaty": true,
+    "Price": "120 Euro"
+  }
+]
