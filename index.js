@@ -75,20 +75,20 @@ db.collection("items")
 let shoppingList = [];
 const shoppingReturn = (data) => {
   shoppingList.push(data);
-  
-  shoppingList.forEach((data) => {
+  console.log(data);
+  // shoppingList.forEach((data) => {
     
 document.querySelector('#el')
 el.innerHTML+=`<div class="card" style="width: 15rem;">
 <img class="card-img-top" src=${data.image} alt="Card image cap">
 <div class="card-body">
-  <h5 class="card-title">${data.title}</h5>
+  <h5 class="card-title">${data.brand}</h5>
   <p class="card-text">${data.price}</p>
   <a href="#" class="btn btn-primary">click to Buy</a>
 </div>
 </div>`
 let root=document.querySelector('#root')
 root.appendChild(el)
-  });
+  // });
 };
 
