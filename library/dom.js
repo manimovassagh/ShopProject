@@ -17,3 +17,12 @@ const dom = (element, innerHTML,className) => {
     el.value=value
   };
   
+  const domWrapper=(element,wrapperElement,wrapperClass,innerHTML,className)=>{
+    let wrapper=document.createElement(wrapperElement);
+    wrapper.classList=wrapperClass;
+    let el=document.createElement(element);
+    el.classList=className
+    el.innerHTML=innerHTML
+    wrapper.appendChild(el)
+
+  }
