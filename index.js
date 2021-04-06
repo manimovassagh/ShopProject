@@ -43,20 +43,7 @@
 // span.innerText=el.length
 
 // ------------------------------------------------------------------------------------------
-//connect to firebase to fetch data from cloud
-db.collection("items")
-  .get()
-  .then((snapshot) => {
-    snapshot.docs
-      .forEach((doc) => {
-        shoppingReturn(doc.data());
-        
-      })
-      
-  });
-
-
-  //this is how to add document in database
+//this is how to add document in database(for later as admin page)
 //   db.collection("items").add({
 //     first: "Ada",
 //     last: "Lovelace",
@@ -69,26 +56,37 @@ db.collection("items")
 //     console.error("Error adding document: ", error);
 // });
 
+//connect to firebase to fetch data from cloud
 
-
+db.collection("items")
+  .get()
+  .then((snapshot) => {
+    snapshot.docs.forEach((doc) => {
+      shoppingReturn(doc.data());
+    });
+  });
 
 let shoppingList = [];
 const shoppingReturn = (data) => {
   shoppingList.push(data);
-  console.log(data);
-  // shoppingList.forEach((data) => {
-    
-document.querySelector('#el')
-el.innerHTML+=`<div class="card" style="width: 15rem;">
+  document.querySelector("#el");
+  const card = document.createElement("div");
+  card.className = "card";
+  card.style.width = "15rem";
+  card.innerHTML = `
 <img class="card-img-top" src=${data.image} alt="Card image cap">
 <div class="card-body">
   <h5 class="card-title">${data.brand}</h5>
   <p class="card-text">${data.price}</p>
   <a href="#" class="btn btn-primary">click to Buy</a>
-</div>
-</div>`
-let root=document.querySelector('#root')
-root.appendChild(el)
-  // });
+</div>`;
+  el.append(card);
+  const button = card.querySelector(".btn-primary");
+  button.addEventListener("click", () => {
+    console.log(" click ", button);
+  });
+  let root = document.querySelector("#root");
+  root.appendChild(el);
 };
 
+window.addEventListener("load", (event) => {});
