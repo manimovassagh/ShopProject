@@ -62,14 +62,16 @@ db.collection("items")
   .get()
   .then((snapshot) => {
     snapshot.docs.forEach((doc) => {
-      shoppingReturn(doc.data());
+      shoppingReturn(doc.data(), doc.id);
+      // console.log(doc.id);
     });
   });
-
+let identifire = [];
 let shoppingList = [];
-const shoppingReturn = (data) => {
+let basket = [];
+const shoppingReturn = (data, id) => {
   shoppingList.push(data);
-  document.querySelector("#el");
+  let el = document.querySelector("#childroot");
   const card = document.createElement("div");
   card.className = "card";
   card.style.width = "15rem";
@@ -77,16 +79,28 @@ const shoppingReturn = (data) => {
 <img class="card-img-top" src=${data.image} alt="Card image cap">
 <div class="card-body">
   <h5 class="card-title">${data.brand}</h5>
-  <p class="card-text">${data.price}</p>
+  <p class="card-text">${data.price}€</p>
+  <p class="card-text">${data.title}</p>
   <a href="#" class="btn btn-primary">click to Buy</a>
 </div>`;
   el.append(card);
   const button = card.querySelector(".btn-primary");
   button.addEventListener("click", () => {
-    console.log(" click ", button);
+    // console.log(" click ", button);
+    if (basket.includes(data)) {
+      data.count++;
+    } else {
+      basket.push(data);
+      data.count = 1;
+    }
+    console.log(basket);
+    // identifire.push(id);
+    // console.log(identifire);
+    //use basket to save data in databse
+
+    localStorage.setItem("cart", JSON.stringify(basket));
+    localStorage.setItem("identifire", JSON.stringify(identifire));
   });
   let root = document.querySelector("#root");
   root.appendChild(el);
 };
-
-window.addEventListener("load", (event) => {});
