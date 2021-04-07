@@ -3,28 +3,29 @@
 let el = localStorage.getItem("cart");
 let identifire = localStorage.getItem("identifire");
 el = JSON.parse(el);
-console.log(el);
+// console.log(el);
 
 let root = document.querySelector("#injectData");
-console.log(root);
+// console.log(root);
 
 for (let i = 0; i < el.length; i++) {
-  console.log(el);
+  // console.log(el);
   root.innerHTML += `
   <tr>
- <td >${i+1}</td>
+ <td>${i + 1}</td>
  <td>${el[i].title}</td> 
  <td>${el[i].price} €</td>
  <td>${el[i].count}</td>
- <td>${el[i].price*el[i].count}€ </td>
- <td><i class="bi bi-bag-plus"> <i class="bi bi-bag-dash"></i></td>
+ <td>${el[i].price * el[i].count}€ </td>
+ <td class="d-flex justify-content-around text-center"><i v class="increment bi bi-bag-plus" style="font-size: 1.8rem; "></i> <i class="bi bi-bag-dash" style="font-size: 1.8rem;"></i></td>
 </tr>
-        
    `;
-  
+
+const increment=document.querySelectorAll('.increment')
+increment.forEach((element)=>{
+  console.log(element);
+})
 }
-
-
 
 
 // for (const basketItems of el) {
@@ -39,7 +40,7 @@ for (let i = 0; i < el.length; i++) {
 //      <td>${basketItems.count}</td>
 //      <td>${Math.round((basketItems.count*basketItems.price * 100) / 100)} Euro </td>
 //    </tr>
-        
+
 //    `;
 // }
 

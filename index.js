@@ -99,7 +99,7 @@ const shoppingReturn = (data, id) => {
     //use basket to save data in databse
 
     localStorage.setItem("cart", JSON.stringify(basket));
-    localStorage.setItem("identifire", JSON.stringify(identifire));
+    // localStorage.setItem("identifire", JSON.stringify(identifire));
   });
   let root = document.querySelector("#root");
   root.appendChild(el);
