@@ -1,2 +1,2 @@
 # shopProject
-This is my Project for jAVASCRIPT Developer course
+This is my Project for JavaScript Developer course
